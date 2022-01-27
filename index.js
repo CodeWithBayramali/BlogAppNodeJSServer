@@ -11,10 +11,7 @@ import commentRouter from './routers/commentRouter.js'
 dotenv.config()
 
 const app = express()
-app.use(cors({
-origin: 'https://alidurak.surge.sh',
-    optionsSuccessStatus:200
-}))
+app.use(cors())
 
 const db = 'mongodb+srv://alkestis07:Perakende07@blogs.0j5tj.mongodb.net/BlogApp?retryWrites=true&w=majority';
 
