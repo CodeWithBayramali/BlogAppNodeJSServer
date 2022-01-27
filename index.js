@@ -12,7 +12,7 @@ dotenv.config()
 
 const app = express()
 app.use(cors())
-const port = process.env || 8000
+const port = process.env.PORT || 8000
 
 const db = 'mongodb+srv://alkestis07:Perakende07@blogs.0j5tj.mongodb.net/BlogApp?retryWrites=true&w=majority';
 
