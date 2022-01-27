@@ -11,7 +11,11 @@ import commentRouter from './routers/commentRouter.js'
 dotenv.config()
 
 const app = express()
-app.use(cors())
+
+app.use(cors({
+    origin: 'https://alidurak.surge.sh',
+    optionsSuccessStatus:200
+}))
 
 //localhost/blogs
 app.use(express.json( {limit: '20mb'} ))
@@ -25,5 +29,5 @@ app.listen(process.env.PORT, ()=> {
     mongoose.connect(process.env.MONGO_URI,{
         useNewUrlParser: true,
         useUnifiedTopology: true
-    }).then(()=>{console.log('Connected to Database')}).catch(err=> console.log(err))
+    })
 })
