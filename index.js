@@ -12,6 +12,7 @@ dotenv.config()
 
 const app = express()
 app.use(cors())
+const port = process.env || 8000
 
 const db = 'mongodb+srv://alkestis07:Perakende07@blogs.0j5tj.mongodb.net/BlogApp?retryWrites=true&w=majority';
 
@@ -22,7 +23,7 @@ app.use('/category', categoryRouter)
 app.use('/user',userRouter)
 app.use('/comment',commentRouter)
 
-app.listen(5000, ()=> {
+app.listen(port, ()=> {
     
     mongoose.connect(db,{
         useNewUrlParser: true,
