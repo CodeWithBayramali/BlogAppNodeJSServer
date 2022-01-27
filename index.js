@@ -11,7 +11,10 @@ import commentRouter from './routers/commentRouter.js'
 dotenv.config()
 
 const app = express()
-app.use(cors())
+app.use(cors({
+origin: 'https://alidurak.surge.sh',
+    optionsSuccessStatus:200
+}))
 
 //localhost/blogs
 app.use(express.json( {limit: '20mb'} ))
