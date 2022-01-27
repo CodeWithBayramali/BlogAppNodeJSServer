@@ -16,6 +16,8 @@ origin: 'https://alidurak.surge.sh',
     optionsSuccessStatus:200
 }))
 
+const db = 'mongodb+srv://alkestis07:Perakende07@blogs.0j5tj.mongodb.net/BlogApp?retryWrites=true&w=majority';
+
 //localhost/blogs
 app.use(express.json( {limit: '20mb'} ))
 app.use('/blogs', blogRouter)
@@ -25,7 +27,7 @@ app.use('/comment',commentRouter)
 
 app.listen(5000, ()=> {
     
-    mongoose.connect(process.env.MONGO_URI,{
+    mongoose.connect(db,{
         useNewUrlParser: true,
         useUnifiedTopology: true
     })
