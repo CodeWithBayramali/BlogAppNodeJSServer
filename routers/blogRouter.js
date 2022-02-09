@@ -31,6 +31,18 @@ router.get('/:id', async (req,res)=> {
     }
 })
 
+//Search Blog
+router.get('/search/:q', async (req,res)=> {
+    try {
+        const {q} = req.params;
+        const blog = await Blog.aggregate({ $text: {$search:q}  })
+        res.status(200).res.json(blog);
+        
+    } catch (error) {
+        res.status(404).json(error)
+    }
+})
+
 //Create Blog
 router.post('/', async (req,res)=> {
     try {
