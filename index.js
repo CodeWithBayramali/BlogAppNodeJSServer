@@ -13,6 +13,9 @@ dotenv.config()
 
 const app = express()
 app.use(cors())
+const port = process.env.PORT || 8000
+
+const db = 'mongodb+srv://alkestis07:Perakende07@blogs.0j5tj.mongodb.net/BlogApp?retryWrites=true&w=majority';
 
 //localhost/blogs
 app.use(express.json( {limit: '20mb'} ))
@@ -22,10 +25,10 @@ app.use('/user',userRouter)
 app.use('/comment',commentRouter)
 app.use('/contact',contactRouter)
 
-app.listen(process.env.PORT, ()=> {
+app.listen(port, ()=> {
     
-    mongoose.connect(process.env.MONGO_URI,{
+    mongoose.connect(db,{
         useNewUrlParser: true,
         useUnifiedTopology: true
-    }).then(()=>{console.log('Connected to Database')}).catch(err=> console.log(err))
+    })
 })
