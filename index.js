@@ -15,7 +15,6 @@ const app = express()
 app.use(cors())
 const port = process.env.PORT || 8000
 
-const db = 'mongodb+srv://alkestis07:Perakende07@blogs.0j5tj.mongodb.net/BlogApp?retryWrites=true&w=majority';
 
 //localhost/blogs
 app.use(express.json( {limit: '20mb'} ))
@@ -27,7 +26,7 @@ app.use('/contact',contactRouter)
 
 app.listen(port, ()=> {
     
-    mongoose.connect(db,{
+    mongoose.connect("YOUR DB URI",{
         useNewUrlParser: true,
         useUnifiedTopology: true
     })
